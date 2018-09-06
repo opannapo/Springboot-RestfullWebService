@@ -87,9 +87,26 @@ public Res userEditBasic(
         return outFail(String.valueOf(request.getAttribute("authErrorMessage")), 404);
     }
 }
-...
+... 
 ```
-
+>Parsing kembalian dari Interceptor -> (request.getAttribute("isRight").equals(true))
+```MessageController
+...
+@GetMapping(UrlComponent.Message.messages_of_me)
+public Res messageOfMe(
+        HttpServletRequest request,
+        @RequestParam(value = "page") int page,
+        @RequestParam(value = "limit") int limit) {
+    if (request.getAttribute("isRight").equals(true)) {
+        FilterDto<String, Object> filterDto = new FilterDto<>();
+        filterDto.put("userId", request.getAttribute("userId"));
+        return outOk(service.messageOfMe(filterDto, page, limit));
+    } else {
+        return outFail(String.valueOf(request.getAttribute("authErrorMessage")), 404);
+    }
+}
+... 
+```  
 
 
 
@@ -124,7 +141,7 @@ public Optional product(FilterDto filterDto) {
 ...
 ```
 
-#Pagination -> Product[List] of Seller / Filter By Address Name , Kondisi -> Product:Status = Active & Seller:ID={Parameter} & Filter Text
+>Pagination -> Product[List] of Seller / Filter By Address Name , Kondisi -> Product:Status = Active & Seller:ID={Parameter} & Filter Text
 ```ProductRepository
 ...
 
@@ -178,7 +195,7 @@ public Page<ProductsEntity> productsFilter(FilterDto filterDto, int page, int li
 
 
 
-#Pagination & Limit Query to Related Entity -> Product[List] of Seller. Limit Query to SellerEntity, karna data Seller sudah tidak dibutuhkan pada Query ini.
+>Pagination & Limit Query to Related Entity -> Product[List] of Seller. Limit Query to SellerEntity, karna data Seller sudah tidak dibutuhkan pada Query ini.
 ```ProductRepository
 ...
 ...
@@ -201,7 +218,7 @@ public Page<ProductsEntity> productsOfSeller(FilterDto filterDto, int page, int 
 ```
 
 
-#Pagination & Limit Query to Related Entity -> Product[List] of Categories. Limit Query to CategoryEntity,Seller->ShimpentEntity,Seller->AddressEntity, karna data Category sudah tidak dibutuhkan pada Query ini. Dan data Seller yang dibutuhkan hanya data basic, tidak membutuhkan Address dan Shimpent.
+>Pagination & Limit Query to Related Entity -> Product[List] of Categories. Limit Query to CategoryEntity,Seller->ShimpentEntity,Seller->AddressEntity, karna data Category sudah tidak dibutuhkan pada Query ini. Dan data Seller yang dibutuhkan hanya data basic, tidak membutuhkan Address dan Shimpent.
 ```ProductRepository
 ...
 @Override
