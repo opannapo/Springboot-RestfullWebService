@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NewPersistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.lamaknyo.api.domain.AddressesEntity</class>
+        <class>com.lamaknyo.api.domain.AdminAccessesEntity</class>
+        <class>com.lamaknyo.api.domain.AdminImagesEntity</class>
+        <class>com.lamaknyo.api.domain.AdminsEntity</class>
+        <class>com.lamaknyo.api.domain.AppSettingsEntity</class>
+        <class>com.lamaknyo.api.domain.AreasBackupEntity</class>
+        <class>com.lamaknyo.api.domain.BanksEntity</class>
+        <class>com.lamaknyo.api.domain.CategoriesEntity</class>
+        <class>com.lamaknyo.api.domain.CitiesBackupEntity</class>
+        <class>com.lamaknyo.api.domain.HibernateSequenceEntity</class>
+        <class>com.lamaknyo.api.domain.LocAreasEntity</class>
+        <class>com.lamaknyo.api.domain.LocCitiesEntity</class>
+        <class>com.lamaknyo.api.domain.LocCountriesEntity</class>
+        <class>com.lamaknyo.api.domain.LocProvincesEntity</class>
+        <class>com.lamaknyo.api.domain.MessagesEntity</class>
+        <class>com.lamaknyo.api.domain.NotesEntity</class>
+        <class>com.lamaknyo.api.domain.OrderMessageBotEntity</class>
+        <class>com.lamaknyo.api.domain.OrderMessagesEntity</class>
+        <class>com.lamaknyo.api.domain.OrderPaymentDetailEntity</class>
+        <class>com.lamaknyo.api.domain.OrderShipmentDetailEntity</class>
+        <class>com.lamaknyo.api.domain.OrderStatusEntity</class>
+        <class>com.lamaknyo.api.domain.OrderStatusStepEntity</class>
+        <class>com.lamaknyo.api.domain.OrdersEntity</class>
+        <class>com.lamaknyo.api.domain.ProductImagesEntity</class>
+        <class>com.lamaknyo.api.domain.ProductPromotionRuleTypeEntity</class>
+        <class>com.lamaknyo.api.domain.ProductPromotionRulesEntity</class>
+        <class>com.lamaknyo.api.domain.ProductReviewsEntity</class>
+        <class>com.lamaknyo.api.domain.ProductsEntity</class>
+        <class>com.lamaknyo.api.domain.ProvincesBackupEntity</class>
+        <class>com.lamaknyo.api.domain.SellerShipmentsEntity</class>
+        <class>com.lamaknyo.api.domain.SellersEntity</class>
+        <class>com.lamaknyo.api.domain.ShipmentsEntity</class>
+        <class>com.lamaknyo.api.domain.TblAreaEntity</class>
+        <class>com.lamaknyo.api.domain.TblCityEntity</class>
+        <class>com.lamaknyo.api.domain.TblRegionEntity</class>
+        <class>com.lamaknyo.api.domain.UsersEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/lamaknyo_dabe"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value=""/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
